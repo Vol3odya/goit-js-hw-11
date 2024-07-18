@@ -1,8 +1,8 @@
 import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { masPictures } from "./pixabay-api";
+//import { masPictures } from "./pixabay-api";
 
-function gallery(arr) {
+export function gallery(arr) {
     let code = '';
     arr.forEach(elm => {
         code += `<li class="gallery-item">
@@ -34,11 +34,11 @@ function gallery(arr) {
     ul.insertAdjacentHTML("beforeend", code);
     const lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250, captionPosition:'bottom', captionsData: "alt" });
 }
-export function zapit(evt) {
+export function zapit() {
     const ul = document.querySelector('.gallery');
     ul.insertAdjacentHTML("afterbegin", '<div class="loader"></div>');
-    //ul.textContent = '<div class="loader"></div>';
-    masPictures(evt).then((res) => gallery(res)).catch((err) => {ul.textContent = ''; console.error(err) });
+    //gallery(evt);
+    //masPictures(evt).then((res) => gallery(res)).catch((err) => {ul.textContent = ''; console.error(err) });
 }
 export function delite() {
     const ul = document.querySelector('.gallery');
